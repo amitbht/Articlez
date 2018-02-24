@@ -1,0 +1,14 @@
+body{
+  background-image: url("/static/styles/signuppage.jpg");
+  background-position: center;
+  background-size: contain;
+}
+
+.jumbotron{
+  margin-top: 60px;
+  opacity: 0.8;
+  background-color: #4dd0e1;
+}
+.container{
+  text-align: center;
+}

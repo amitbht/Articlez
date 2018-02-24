@@ -1,0 +1,27 @@
+
+.jumbotron{
+  margin-top: 10px;
+  background: contain;
+  background: #C5CAE9;
+}
+
+pre{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  max-height: 30%;
+}
+
+.dropdown-menu{
+
+  max-width: inherit;
+  min-width: inherit;
+  width: inherit !important;
+}
+.navbar{
+  background: #E8EAF6;
+}
+.card{
+  font-family: "Gill Sans", sans-serif;
+}

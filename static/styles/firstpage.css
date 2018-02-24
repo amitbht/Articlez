@@ -1,0 +1,17 @@
+body{
+  text-align: center;
+  background-image: url("/static/styles/slide7.jpg");
+}
+
+.container{
+  text-align: center;
+}
+
+.jumbotron{
+  margin-top: 100px;
+  opacity: 0.9;
+}
+
+.col{
+  width: 10%;
+}
