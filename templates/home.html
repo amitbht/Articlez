@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Articles</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function delPrompt(){
+        var inbyu = prompt("Do you want to delete you account ? y or n");
+        if (inbyu =='y'||inbyu =='Y'){
+          $('.del_acc').attr("href","{{url_for('delete_account')}}");}
+        else{$('.del_acc').attr("href","{{url_for('protected')}}");}
+      }
+    </script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles/home.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/styles/favicon-16x16.png">
+
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="">Articlez.</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('protected')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+    <li class="nav-item dropdown navbar-nav">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{data}}
+    </a>
+   <ul class="dropdown-menu">
+     <li><a class = "del_acc " href="" onclick="delPrompt()">Delete Account </a></li>
+       <div class="dropdown-divider"></div>
+     <li><a href="{{url_for('logout')}}">Log Out</a></li>
+  </ul>
+ </li>
+
+
+</div>
+</nav>
+
+
+
+    <div class="container" >
+
+      <div class="jumbotron">
+
+
+
+      <div class="row">
+        <div class="col-xl-7 col-sm-12">
+
+      <form id="newarticle"class="newarc" action="{{url_for('write_article')}}" method="post">
+        <textarea name="head" rows="4" cols="100" placeholder="Title"  required></textarea><br>
+        <textarea name="body" rows="17" cols="100" placeholder="Write Here.." required></textarea><br>
+        <input id="submitbtn" class="btn btn-primary" type="submit" name="sub" value="Save" >
+      </form>
+
+      <br>
+
+        </div>
+
+        <div class="col-xl-5 col-sm-6 col" >
+          <form class="viewall" action="{{url_for('allarticles')}}" method="get">
+            <input class="btn btn-primary btn-lg" type="submit" name="viewmy" value="By Others">
+          </form><br>
+
+
+
+          <form class="viewall" action="{{url_for('viewmy')}}" method="get">
+           <input class="btn btn-primary btn-lg" type="submit" name="viewmy" value="By You">
+          </form><br>
+
+
+        </div>
+       </div>
+      </div>
+    </div>
+
+  </body>
+</html>

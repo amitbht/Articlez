@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/styles/login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/styles/favicon-16x16.png">
+    <title>Articlez</title>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <h1 >Articlez.</h1>
+      <div class="jumbotron">
+        <h1>Log In</h1><br>
+
+    <form class="form-horizontal" action="{{url_for('login')}}" method="post">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email address:</label>
+        <div class="">
+        <input type="email" name="email" placeholder="abc@xyz.com"></div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+       <div class="">
+         <input type="password" name="password" placeholder="*********">
+       </div>
+      </div>
+
+      <div class="form-group">
+        <div class="">
+          <input type="Submit"  name='login' value="Log in">
+        </div>
+      </div>
+
+
+    </form>
+      </div>
+    </div>
+  </body>
+</html>
