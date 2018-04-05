@@ -36,10 +36,6 @@ def user_loader(email):
     return user
 
 @app.route('/')
-def one():
-    return redirect(url_for("welcome"))
-
-@app.route('/api')
 def welcome():
     return render_template('html.html')
 
@@ -68,14 +64,14 @@ def login():
         return 'email not registered. Please signup first'
 
 
-@app.route('/api/protected')
+@app.route('/protected')
 @flask_login.login_required
 def protected():
     name=appdata.find_one({'email':flask_login.current_user.id})
     username=name['name']
     return render_template('home.html',data=username)
 
-@app.route('/api/delete_account',methods=['GET'])
+@app.route('/delete_account',methods=['GET'])
 @flask_login.login_required
 def delete_account():
     if request.method=='GET':
@@ -83,12 +79,12 @@ def delete_account():
         session.clear()
         return redirect(url_for("welcome"))
 
-@app.route('/api/logout')
+@app.route('/logout')
 def logout():
     flask_login.logout_user()
     return redirect(url_for('welcome'))
 
-@app.route('/api/write_article',methods=['GET','POST'])
+@app.route('/write_article',methods=['GET','POST'])
 @flask_login.login_required
 def write_article():
     if request.method=='GET':
@@ -103,7 +99,7 @@ def write_article():
         return render_template('home.html')
 
 
-@app.route('/api/viewmy',methods=['GET'])
+@app.route('/viewmy',methods=['GET'])
 @flask_login.login_required
 def viewmy():
     if request.method=='GET':
@@ -115,7 +111,7 @@ def viewmy():
     return render_template('articles.html',name=username,data=myarc)
 
 
-@app.route('/api/allarticles',methods=['GET'])
+@app.route('/allarticles',methods=['GET'])
 @flask_login.login_required
 def allarticles():
     if request.method=='GET':
@@ -137,7 +133,7 @@ def unauthorized_handler():
     return 'Unauthorized.Please log in first'
 
 
-@app.route('/api/signup',methods=['GET','POST'])
+@app.route('/signup',methods=['GET','POST'])
 def signup():
     if request.method=='GET':
         return render_template('signup.html')
